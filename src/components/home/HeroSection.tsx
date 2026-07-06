@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       {/* 배경 사진 */}
       <Image
-        src="/images/gallery/ppt2_021.png"
+        src="/images/gallery/ppt2_021.jpg"
         alt="동산유치원 아이들이 즐겁게 노는 모습"
         fill
         className="object-cover object-center"

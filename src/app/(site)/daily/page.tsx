@@ -12,15 +12,15 @@ const morningSchedule: ScheduleItem[] = [
   { time: "07:30", label: "등원", icon: "🌅", desc: "등원 및 자유선택 활동" },
   { time: "09:00", label: "아침 모임", icon: "🌞", desc: "인사 나누기, 날씨·날짜 알기" },
   { time: "09:30", label: "자유놀이", icon: "🎮", desc: "실내 자유선택 활동", photo: "/images/daily_freeplay.jpg" },
-  { time: "10:30", label: "이야기 나누기", icon: "💬", desc: "주제 탐구, 언어·수학 활동", photo: "/images/daily_reading.png" },
-  { time: "11:30", label: "바깥 활동", icon: "🌳", desc: "실외놀이, 텃밭, 산책", photo: "/images/daily_outdoor.png" },
+  { time: "10:30", label: "이야기 나누기", icon: "💬", desc: "주제 탐구, 언어·수학 활동", photo: "/images/daily_reading.jpg" },
+  { time: "11:30", label: "바깥 활동", icon: "🌳", desc: "실외놀이, 텃밭, 산책", photo: "/images/daily_outdoor.jpg" },
   { time: "12:30", label: "점심 식사", icon: "🍱", desc: "영양사 선생님의 균형 잡힌 식단" },
 ];
 
 const afternoonSchedule: ScheduleItem[] = [
   { time: "13:30", label: "낮잠·휴식", icon: "😴", desc: "휴식 및 조용한 활동" },
   { time: "14:30", label: "오후 활동", icon: "🎨", desc: "특성화 교육, 프로젝트 활동", photo: "/images/daily_play.jpg" },
-  { time: "15:30", label: "간식·하원 준비", icon: "🧁", desc: "간식 먹기, 하원 준비", photo: "/images/daily_snack.png" },
+  { time: "15:30", label: "간식·하원 준비", icon: "🧁", desc: "간식 먹기, 하원 준비", photo: "/images/daily_snack.jpg" },
 ];
 
 const eveningSchedule: ScheduleItem[] = [

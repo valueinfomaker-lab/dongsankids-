@@ -62,7 +62,7 @@ export default function AboutPage() {
             <div className="flex-shrink-0 w-full md:w-80">
               <div className="relative w-full h-56 md:h-64 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src="/images/building.png"
+                  src="/images/building.jpg"
                   alt="동산유치원 전경"
                   fill
                   className="object-cover"
