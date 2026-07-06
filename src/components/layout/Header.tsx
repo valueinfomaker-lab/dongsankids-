@@ -45,10 +45,12 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
-  // 라우트 변경 시 드로어 닫기
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  // 라우트 변경 시 드로어 닫기 (렌더 중 상태 보정 패턴)
+  const [lastPathname, setLastPathname] = useState(pathname);
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    if (menuOpen) setMenuOpen(false);
+  }
 
   return (
     <>

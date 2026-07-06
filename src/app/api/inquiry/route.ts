@@ -14,7 +14,7 @@ const INQUIRY_WINDOW_MS = 60 * 60 * 1000;
 export async function POST(request: NextRequest) {
   try {
     const key = `inquiry:${clientIpFrom(request.headers)}`;
-    const { allowed } = checkRateLimit(key, INQUIRY_LIMIT, INQUIRY_WINDOW_MS);
+    const { allowed } = checkRateLimit(key, INQUIRY_LIMIT);
     if (!allowed) {
       return NextResponse.json(
         { error: "문의가 너무 잦습니다. 잠시 후 다시 시도해주세요" },

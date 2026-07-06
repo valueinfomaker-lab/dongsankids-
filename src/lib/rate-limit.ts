@@ -13,11 +13,7 @@ export interface RateLimitResult {
   retryAfterSec: number;
 }
 
-export function checkRateLimit(
-  key: string,
-  limit: number,
-  windowMs: number
-): RateLimitResult {
+export function checkRateLimit(key: string, limit: number): RateLimitResult {
   const now = Date.now();
 
   // 만료된 엔트리 정리 (접근 시점 pruning)

@@ -8,7 +8,7 @@ const LOGIN_WINDOW_MS = 15 * 60 * 1000;
 export async function POST(request: NextRequest) {
   try {
     const key = `login:${clientIpFrom(request.headers)}`;
-    const { allowed } = checkRateLimit(key, LOGIN_LIMIT, LOGIN_WINDOW_MS);
+    const { allowed } = checkRateLimit(key, LOGIN_LIMIT);
     if (!allowed) {
       return NextResponse.json(
         { error: "시도 횟수가 너무 많습니다. 15분 후 다시 시도해주세요" },
