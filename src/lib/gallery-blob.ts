@@ -25,7 +25,8 @@ export async function readMetadata(): Promise<GalleryBlobItem[]> {
     const { blobs } = await list({ prefix: METADATA_KEY });
     if (blobs.length === 0) return [];
 
-    const res = await fetch(blobs[0].url, { cache: "no-store" });
+    // 캐시버스터: 고정 키 덮어쓰기 후에도 CDN 캐시를 우회해 항상 최신을 읽는다
+    const res = await fetch(`${blobs[0].url}?ts=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) return [];
 
     const data = await res.json();
@@ -43,6 +44,7 @@ export async function writeMetadata(items: GalleryBlobItem[]): Promise<void> {
     access: "public",
     allowOverwrite: true,
     contentType: "application/json",
+    cacheControlMaxAge: 0, // 서버가 최소 60초로 클램프하지만 기본 1개월보다 훨씬 짧음
   });
 }
 

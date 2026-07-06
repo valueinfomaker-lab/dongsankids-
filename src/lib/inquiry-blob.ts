@@ -27,7 +27,8 @@ export async function readInquiries(): Promise<InquiryItem[]> {
     const newest = [...blobs].sort(
       (a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime()
     )[0];
-    const res = await fetch(newest.url, { cache: "no-store" });
+    // 캐시버스터: CDN 캐시를 우회해 항상 최신을 읽는다
+    const res = await fetch(`${newest.url}?ts=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) return [];
 
     const data = await res.json();
@@ -44,6 +45,7 @@ async function writeInquiries(items: InquiryItem[]): Promise<void> {
     access: "public",
     addRandomSuffix: true,
     contentType: "application/json",
+    cacheControlMaxAge: 0,
   });
 
   // 이전 메타데이터 blob 삭제 (URL 회전)
