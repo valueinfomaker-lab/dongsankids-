@@ -7,5 +7,5 @@ export const siteConfig = {
   phoneHref: "tel:02-866-6571",
   address: "서울시 금천구 시흥대로 152길 35",
   hours: "07:30 ~ 19:30",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dongsan-web.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://dongsanweb.vercel.app",
 } as const;
