@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 const navItems = [
   { label: "홈", href: "/" },
@@ -66,14 +67,14 @@ export default function Header() {
           {/* 데스크톱 CTA + 전화번호 */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:02-866-6571"
+              href={siteConfig.phoneHref}
               className="flex items-center gap-1 text-sm text-[#64748B] hover:text-[#4A9EE0] transition-colors"
             >
               <Phone className="w-4 h-4" />
-              02-866-6571
+              {siteConfig.phone}
             </a>
             <a
-              href="tel:02-866-6571"
+              href={siteConfig.phoneHref}
               className="bg-[#F47B5A] hover:bg-[#e5633f] text-white text-sm font-medium px-5 py-2 rounded-full transition-colors"
             >
               전화 문의
@@ -83,7 +84,7 @@ export default function Header() {
           {/* 모바일: 전화 + 햄버거 */}
           <div className="flex md:hidden items-center gap-3">
             <a
-              href="tel:02-866-6571"
+              href={siteConfig.phoneHref}
               className="flex items-center justify-center w-9 h-9 rounded-full bg-[#F0F5FF] text-[#4A9EE0]"
               aria-label="전화 연결"
             >
@@ -138,11 +139,11 @@ export default function Header() {
           </ul>
           <div className="p-6 border-t border-gray-100">
             <a
-              href="tel:02-866-6571"
+              href={siteConfig.phoneHref}
               onClick={() => setMenuOpen(false)}
               className="block w-full text-center bg-[#F47B5A] hover:bg-[#e5633f] text-white font-medium py-3 rounded-full transition-colors"
             >
-              📞 02-866-6571
+              📞 {siteConfig.phone}
             </a>
           </div>
         </nav>

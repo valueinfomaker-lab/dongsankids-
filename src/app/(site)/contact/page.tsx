@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Phone, MapPin, Clock } from "lucide-react";
+import { siteConfig } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "문의 및 오시는 길",
+  description:
+    "동산유치원 전화 문의, 주소, 운영시간 안내. 온라인 입학 문의도 남기실 수 있습니다.",
+};
 
 export default function ContactPage() {
   return (
@@ -19,12 +27,12 @@ export default function ContactPage() {
           <div className="bg-gradient-to-r from-[#F47B5A] to-[#e5633f] rounded-2xl p-8 text-center mb-8">
             <p className="text-white/80 text-sm mb-2">전화로 바로 문의하세요</p>
             <a
-              href="tel:02-866-6571"
+              href={siteConfig.phoneHref}
               className="font-display text-3xl md:text-4xl font-bold text-white hover:underline"
             >
-              02-866-6571
+              {siteConfig.phone}
             </a>
-            <p className="text-white/70 text-sm mt-2">평일 07:30 ~ 19:30</p>
+            <p className="text-white/70 text-sm mt-2">평일 {siteConfig.hours}</p>
           </div>
 
           {/* 기본 정보 */}
@@ -34,7 +42,7 @@ export default function ContactPage() {
               <div>
                 <div className="text-sm font-medium text-[#1E293B]">주소</div>
                 <div className="text-sm text-[#64748B]">
-                  서울시 금천구 시흥대로 152길 35 동산유치원
+                  {siteConfig.address} 동산유치원
                 </div>
               </div>
             </div>
@@ -43,10 +51,10 @@ export default function ContactPage() {
               <div>
                 <div className="text-sm font-medium text-[#1E293B]">전화</div>
                 <a
-                  href="tel:02-866-6571"
+                  href={siteConfig.phoneHref}
                   className="text-sm text-[#4A9EE0] hover:underline font-medium"
                 >
-                  02-866-6571
+                  {siteConfig.phone}
                 </a>
               </div>
             </div>
@@ -54,7 +62,7 @@ export default function ContactPage() {
               <Clock className="w-5 h-5 text-[#4A9EE0] mt-0.5 flex-shrink-0" />
               <div>
                 <div className="text-sm font-medium text-[#1E293B]">운영시간</div>
-                <div className="text-sm text-[#64748B]">평일 07:30 ~ 19:30</div>
+                <div className="text-sm text-[#64748B]">평일 {siteConfig.hours}</div>
               </div>
             </div>
           </div>

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import { busRoutes, type ScheduleItem } from "@/data/daily";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "하루 일과 | 동산유치원",
+  title: "하루 일과",
   description: "동산유치원의 하루 일과 및 통학버스 안내",
 };
 
@@ -210,7 +211,7 @@ export default function DailyPage() {
         </h2>
         <p className="text-white/80 mb-6">언제든지 전화로 문의해 주세요</p>
         <a
-          href="tel:02-866-6571"
+          href={siteConfig.phoneHref}
           className="inline-block bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5"
         >
           전화 문의하기 →

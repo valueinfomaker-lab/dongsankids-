@@ -2,9 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { programs } from "@/data/curriculum";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "교육과정 | 동산유치원",
+  title: "교육과정",
   description: "동산유치원의 5가지 교육과정: 자연생태교육, 놀이프로젝트, 인성교육, 독서·언어교육, 방과후 특기활동",
 };
 
@@ -87,7 +88,7 @@ export default function CurriculumPage() {
           직접 원을 방문해 보시거나 상담을 신청해 주세요
         </p>
         <a
-          href="tel:02-866-6571"
+          href={siteConfig.phoneHref}
           className="inline-block bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5"
         >
           전화 문의하기 →

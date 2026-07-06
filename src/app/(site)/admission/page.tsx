@@ -1,8 +1,14 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useState } from "react";
-import { ChevronDown, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
+import FaqAccordion from "@/components/admission/FaqAccordion";
+import { siteConfig } from "@/data/site";
+
+export const metadata: Metadata = {
+  title: "입학안내",
+  description:
+    "동산유치원 2026학년도 신입원아 모집 안내. 만 3~5세 입학 대상, 입학 절차, 자주 묻는 질문을 확인하세요.",
+};
 
 const eligibility = [
   { age: "만 3세", birth: "2022년 1월 ~ 12월생", icon: "🐣" },
@@ -17,32 +23,7 @@ const steps = [
   { step: "04", title: "입학 확정", desc: "입학 확정 통보 및 등록", icon: "🎉" },
 ];
 
-const faqs = [
-  {
-    q: "입학 대상 연령이 어떻게 되나요?",
-    a: "만 3세(2022년생), 만 4세(2021년생), 만 5세(2020년생) 아이들이 입학 가능합니다.",
-  },
-  {
-    q: "유치원 비용이 얼마인가요?",
-    a: "국가에서 지원하는 유아학비로 실부담금이 크게 줄어듭니다. 구체적인 금액은 상담 시 안내드립니다.",
-  },
-  {
-    q: "통학버스는 어떻게 운영되나요?",
-    a: "A, B, C, D 총 4개 노선을 운영합니다. 각 노선의 경로와 시간표는 상담 시 자세히 안내드립니다.",
-  },
-  {
-    q: "방과후 프로그램은 어떻게 신청하나요?",
-    a: "영어, 댄스, 스포츠, 도예, AI블록 등 다양한 방과후 프로그램을 운영합니다. 입학 후 선택 신청 가능합니다.",
-  },
-  {
-    q: "견학이나 방문 상담이 가능한가요?",
-    a: "네, 가능합니다. 사전에 전화 또는 온라인으로 방문 일정을 예약해 주시면 원장 선생님이 직접 안내해 드립니다.",
-  },
-];
-
 export default function AdmissionPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   return (
     <div>
       {/* 페이지 헤더 */}
@@ -115,33 +96,7 @@ export default function AdmissionPage() {
           <h2 className="font-display text-2xl font-bold text-[#1E293B] text-center mb-8">
             자주 묻는 질문
           </h2>
-          <div className="space-y-3">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="bg-white border border-[#E2E8F0] rounded-xl overflow-hidden"
-              >
-                <button
-                  className="w-full flex items-center justify-between px-5 py-4 text-left hover:bg-[#FAFBFF] transition-colors"
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                >
-                  <span className="font-medium text-[#1E293B] text-sm md:text-base">
-                    Q. {faq.q}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#64748B] flex-shrink-0 ml-3 transition-transform duration-200 ${
-                      openFaq === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {openFaq === index && (
-                  <div className="px-5 pb-4 text-sm text-[#64748B] leading-relaxed border-t border-[#F1F5F9] pt-3">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <FaqAccordion />
         </div>
       </section>
 
@@ -153,14 +108,20 @@ export default function AdmissionPage() {
         <p className="text-white/80 mb-6">
           원장 선생님이 직접 안내해 드립니다
         </p>
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
-            href="tel:02-866-6571"
+            href={siteConfig.phoneHref}
             className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-[#F47B5A] font-bold px-10 py-4 rounded-full text-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
           >
             <Phone className="w-5 h-5" />
-            02-866-6571
+            {siteConfig.phone}
           </a>
+          <Link
+            href="/contact#inquiry"
+            className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-200"
+          >
+            온라인 문의하기
+          </Link>
         </div>
       </section>
     </div>

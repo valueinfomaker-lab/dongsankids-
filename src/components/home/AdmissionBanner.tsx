@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { siteConfig } from "@/data/site";
 
 export default function AdmissionBanner() {
   return (
@@ -18,7 +19,7 @@ export default function AdmissionBanner() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a
-            href="tel:02-866-6571"
+            href={siteConfig.phoneHref}
             className="w-full sm:w-auto bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5"
           >
             전화 문의하기 →

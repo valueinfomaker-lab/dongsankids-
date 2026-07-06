@@ -1,3 +1,5 @@
+import { siteConfig } from "@/data/site";
+
 const points = [
   {
     emoji: "🌿",
@@ -22,7 +24,7 @@ const points = [
   },
   {
     emoji: "🕗",
-    title: "07:30 ~ 19:30 운영",
+    title: `${siteConfig.hours} 운영`,
     desc: "맞벌이 가정도 안심할 수 있는 넓은 운영시간",
     color: "#9B7FE8",
     bg: "#F5F0FF",

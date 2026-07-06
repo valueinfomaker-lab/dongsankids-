@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR, Jua } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import FloatingCTA from "@/components/ui/FloatingCTA";
 
 const noto = Noto_Sans_KR({
   subsets: ["latin"],
@@ -41,10 +38,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${noto.variable} ${jua.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingCTA />
+        {children}
       </body>
     </html>
   );

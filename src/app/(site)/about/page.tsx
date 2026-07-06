@@ -1,9 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
+import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "유치원 소개 | 동산유치원",
+  title: "유치원 소개",
   description: "동산유치원의 교육 철학과 시설을 소개합니다. 아이 한 명 한 명의 속도를 존중합니다.",
 };
 
@@ -157,7 +158,7 @@ export default function AboutPage() {
           궁금한 점이 있으시면 언제든지 연락주세요
         </p>
         <a
-          href="tel:02-866-6571"
+          href={siteConfig.phoneHref}
           className="inline-block bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-md transition-all duration-200 hover:-translate-y-0.5"
         >
           전화 문의하기 →

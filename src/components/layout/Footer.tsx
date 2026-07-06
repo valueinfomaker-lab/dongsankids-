@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Phone, MapPin, Clock } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 const quickLinks = [
   { label: "유치원 소개", href: "/about" },
@@ -62,20 +63,20 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#4A9EE0]" />
-                서울시 금천구 시흥대로 152길 35
+                {siteConfig.address}
               </li>
               <li>
                 <a
-                  href="tel:02-866-6571"
+                  href={siteConfig.phoneHref}
                   className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
                 >
                   <Phone className="w-4 h-4 flex-shrink-0 text-[#4A9EE0]" />
-                  02-866-6571
+                  {siteConfig.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-white/70">
                 <Clock className="w-4 h-4 flex-shrink-0 text-[#4A9EE0]" />
-                운영시간 07:30 ~ 19:30
+                운영시간 {siteConfig.hours}
               </li>
             </ul>
           </div>
