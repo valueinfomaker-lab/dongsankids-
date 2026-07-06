@@ -1,4 +1,4 @@
-import { put, list } from "@vercel/blob";
+import { put, del, list } from "@vercel/blob";
 import type { NoticeInput } from "@/lib/validation/notice";
 
 export interface NoticeItem extends NoticeInput {
@@ -7,9 +7,10 @@ export interface NoticeItem extends NoticeInput {
   updatedAt: string;
 }
 
-// 공지사항은 공개 콘텐츠이므로 고정 키 사용 (gallery-blob과 동일 패턴).
+// 고정 키 덮어쓰기는 CDN 캐시(최대 60초, 쿼리 무시)로 낡은 읽기가 발생하므로
+// 쓰기마다 랜덤 suffix로 새 URL을 만들고 이전 blob을 삭제한다.
 // read-modify-write 경합은 last-write-wins — 관리자 1명 규모에서 수용.
-const METADATA_KEY = "notices/metadata.json";
+const METADATA_PREFIX = "notices/metadata";
 
 function isBlobConfigured(): boolean {
   // 구형(토큰) 연결 또는 신형(스토어 ID + OIDC) 연결 모두 지원
@@ -20,11 +21,13 @@ export async function readNotices(): Promise<NoticeItem[]> {
   if (!isBlobConfigured()) return [];
 
   try {
-    const { blobs } = await list({ prefix: METADATA_KEY });
+    const { blobs } = await list({ prefix: METADATA_PREFIX });
     if (blobs.length === 0) return [];
 
-    // 캐시버스터: 고정 키 덮어쓰기 후에도 CDN 캐시를 우회해 항상 최신을 읽는다
-    const res = await fetch(`${blobs[0].url}?ts=${Date.now()}`, { cache: "no-store" });
+    const newest = [...blobs].sort(
+      (a, b) => b.uploadedAt.getTime() - a.uploadedAt.getTime()
+    )[0];
+    const res = await fetch(newest.url, { cache: "no-store" });
     if (!res.ok) return [];
 
     const data = await res.json();
@@ -43,12 +46,17 @@ export function sortNotices(items: NoticeItem[]): NoticeItem[] {
 }
 
 async function writeNotices(items: NoticeItem[]): Promise<void> {
-  await put(METADATA_KEY, JSON.stringify(items, null, 2), {
+  const { blobs: previous } = await list({ prefix: METADATA_PREFIX });
+
+  await put(`${METADATA_PREFIX}.json`, JSON.stringify(items, null, 2), {
     access: "public",
-    allowOverwrite: true,
+    addRandomSuffix: true,
     contentType: "application/json",
-    cacheControlMaxAge: 0, // 서버가 최소 60초로 클램프하지만 기본 1개월보다 훨씬 짧음
+    cacheControlMaxAge: 0,
   });
+
+  // 이전 메타데이터 blob 삭제 (새 URL만 남김)
+  await Promise.all(previous.map((b) => del(b.url).catch(() => undefined)));
 }
 
 export async function createNotice(input: NoticeInput): Promise<NoticeItem> {
