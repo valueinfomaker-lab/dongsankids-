@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Phone, MapPin, Clock } from "lucide-react";
+import InquiryForm from "@/components/contact/InquiryForm";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -88,6 +89,17 @@ export default function ContactPage() {
           >
             Google 지도에서 열기 →
           </a>
+
+          {/* 온라인 입학 문의 */}
+          <section id="inquiry" className="relative pt-8 border-t border-[#F1F5F9]">
+            <h2 className="font-display text-2xl font-bold text-[#1E293B] text-center mb-2">
+              온라인 입학 문의
+            </h2>
+            <p className="text-sm text-[#64748B] text-center mb-8">
+              연락처를 남겨주시면 확인 후 연락드립니다
+            </p>
+            <InquiryForm />
+          </section>
         </div>
       </section>
     </div>

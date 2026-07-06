@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site";
@@ -11,13 +12,16 @@ const navItems = [
   { label: "유치원 소개", href: "/about" },
   { label: "교육과정", href: "/curriculum" },
   { label: "하루 일과", href: "/daily" },
+  { label: "사진첩", href: "/gallery" },
   { label: "입학안내", href: "/admission" },
+  { label: "공지사항", href: "/notice" },
   { label: "문의", href: "/contact" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -30,6 +34,21 @@ export default function Header() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+
+  // ESC 키로 드로어 닫기
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [menuOpen]);
+
+  // 라우트 변경 시 드로어 닫기
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
@@ -93,7 +112,9 @@ export default function Header() {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex items-center justify-center w-9 h-9 rounded-full bg-[#F0F5FF] text-[#1E293B]"
-              aria-label="메뉴 열기"
+              aria-label={menuOpen ? "메뉴 닫기" : "메뉴 열기"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
             >
               {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -114,6 +135,10 @@ export default function Header() {
         />
         {/* 드로어 패널 */}
         <nav
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="모바일 메뉴"
           className={`absolute right-0 top-0 h-full w-72 bg-white shadow-2xl flex flex-col transition-transform duration-300 ${
             menuOpen ? "translate-x-0" : "translate-x-full"
           }`}

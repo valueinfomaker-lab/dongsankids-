@@ -7,7 +7,9 @@ const quickLinks = [
   { label: "유치원 소개", href: "/about" },
   { label: "교육과정", href: "/curriculum" },
   { label: "하루 일과", href: "/daily" },
+  { label: "사진첩", href: "/gallery" },
   { label: "입학안내", href: "/admission" },
+  { label: "공지사항", href: "/notice" },
   { label: "문의", href: "/contact" },
 ];
 
@@ -38,7 +40,7 @@ export default function Footer() {
 
           {/* 빠른 링크 */}
           <div>
-            <h3 className="font-bold text-sm text-white/50 uppercase tracking-wider mb-4">
+            <h3 className="font-bold text-sm text-white/60 uppercase tracking-wider mb-4">
               바로가기
             </h3>
             <ul className="grid grid-cols-2 gap-2">
@@ -57,7 +59,7 @@ export default function Footer() {
 
           {/* 연락처 */}
           <div>
-            <h3 className="font-bold text-sm text-white/50 uppercase tracking-wider mb-4">
+            <h3 className="font-bold text-sm text-white/60 uppercase tracking-wider mb-4">
               연락처
             </h3>
             <ul className="space-y-3">
@@ -82,7 +84,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/40">
+        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/60">
           <p>© 2026 동산유치원. All rights reserved.</p>
           <p>개인정보처리방침</p>
         </div>
