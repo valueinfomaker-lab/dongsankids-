@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: "동산유치원의 행사, 휴원 안내 등 주요 소식을 알려드립니다.",
 };
 
+// 관리자가 등록한 공지가 바로 보이도록 요청 시 렌더링
+export const dynamic = "force-dynamic";
+
 export default async function NoticePage() {
   const notices = sortNotices(await readNotices());
 

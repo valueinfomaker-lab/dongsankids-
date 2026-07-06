@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "동산유치원 아이들의 교육활동, 자연체험, 행사 사진을 모았습니다.",
 };
 
+// 관리자가 업로드한 사진이 바로 보이도록 요청 시 렌더링
+export const dynamic = "force-dynamic";
+
 export default async function GalleryPage() {
   const blobItems = await readMetadata();
 

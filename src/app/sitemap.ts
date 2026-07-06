@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
 import { readNotices } from "@/lib/notice-blob";
 
+// 공지 URL이 반영되도록 요청 시 생성
+export const dynamic = "force-dynamic";
+
 const staticPaths = [
   "",
   "/about",
