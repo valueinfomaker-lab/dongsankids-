@@ -14,7 +14,8 @@ export interface GalleryBlobItem {
 const METADATA_KEY = "gallery/metadata.json";
 
 function isBlobConfigured(): boolean {
-  return !!process.env.BLOB_READ_WRITE_TOKEN;
+  // 구형(토큰) 연결 또는 신형(스토어 ID + OIDC) 연결 모두 지원
+  return !!(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID);
 }
 
 export async function readMetadata(): Promise<GalleryBlobItem[]> {
