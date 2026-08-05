@@ -55,7 +55,7 @@ export default function ParentsPage() {
               key={program.id}
               id={program.id}
               className="border border-[#E2E8F0] border-t-4 rounded-3xl p-8 md:p-10"
-              style={{ borderTopColor: program.color, backgroundColor: `${program.color}0D` }}
+              style={{ borderTopColor: program.color, backgroundColor: `${program.color}14` }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div
