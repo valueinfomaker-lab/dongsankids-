@@ -7,7 +7,7 @@ import PageHeader from "@/components/ui/PageHeader";
 export const metadata: Metadata = {
   title: "특색교육",
   description:
-    "동산유치원의 특색교육: 놀이교육, 프로젝트, 생태교육, 인성교육, 독서교육, 예술교육, 유·초 연계교육을 소개합니다.",
+    "동산유치원의 특색교육: 놀이교육, 생태교육, 인성교육, 독서교육, 예술교육, 유·초 연계교육을 소개합니다.",
 };
 
 export default function ProgramsPage() {

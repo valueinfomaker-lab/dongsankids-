@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const relatedLinks = [
   {
     title: "특색교육",
-    desc: "놀이·프로젝트·생태·인성·독서·예술·유초연계 교육",
+    desc: "놀이·생태·인성·독서·예술·유초연계 교육",
     href: "/programs",
     emoji: "🌟",
     color: "#9B7FE8",

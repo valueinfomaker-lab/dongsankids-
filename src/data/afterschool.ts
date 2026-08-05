@@ -38,15 +38,6 @@ export type SpecialtyProgram = {
 
 export const specialtyPrograms: SpecialtyProgram[] = [
   {
-    id: "english",
-    title: "영어",
-    emoji: "🌎",
-    color: "#4A9EE0",
-    description:
-      "노래와 율동, 동화, 게임 등 다양한 놀이 활동을 통해 영어를 자연스럽게 접하며, 외국어에 대한 흥미와 자신감을 키웁니다.",
-    images: [],
-  },
-  {
     id: "kpop",
     title: "K-POP",
     emoji: "💃",
@@ -72,15 +63,6 @@ export const specialtyPrograms: SpecialtyProgram[] = [
     description:
       "흙을 직접 만지고 빚으며 다양한 작품을 만들어 보는 활동을 통해 창의력과 소근육 발달을 돕고, 집중력과 성취감을 기릅니다.",
     images: ["/images/afterschool/pottery-1.jpg", "/images/afterschool/pottery-2.gif"],
-  },
-  {
-    id: "senses",
-    title: "오감퍼포먼스",
-    emoji: "🌈",
-    color: "#9B7FE8",
-    description:
-      "보고, 듣고, 만지고, 느끼고, 표현하는 다양한 오감 체험 활동을 통해 풍부한 감성과 창의력을 키우며 즐거운 놀이 속에서 배움을 경험합니다.",
-    images: [],
   },
   {
     id: "block",
