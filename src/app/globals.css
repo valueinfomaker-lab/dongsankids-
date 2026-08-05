@@ -25,9 +25,17 @@ html {
   scroll-behavior: smooth;
 }
 
-/* 고정 헤더(4rem)에 가려지지 않도록 앵커 이동 시 여백 확보 */
+/* 고정 헤더(4rem) + 고정 목차(약 3.2rem)에 가려지지 않도록 앵커 이동 시 여백 확보 */
 [id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 8.5rem;
+}
+
+/* 가로 스크롤 목차의 스크롤바 숨김 */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
 body {
