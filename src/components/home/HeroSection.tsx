@@ -1,6 +1,24 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Phone } from "lucide-react";
+
+function InstagramIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 import { siteConfig } from "@/data/site";
 import { ScallopDivider } from "@/components/ui/Doodles";
 
@@ -21,7 +39,27 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* 카피 + CTA */}
+        {/* CTA — 일러스트 바로 아래 */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+          <a
+            href="https://www.instagram.com/dongsan_kinder/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white font-bold px-8 py-4 rounded-full text-lg shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            <InstagramIcon className="w-5 h-5" />
+            인스타그램 보기
+          </a>
+          <a
+            href={siteConfig.phoneHref}
+            className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-md transition-all duration-200 hover:-translate-y-0.5"
+          >
+            <Phone className="w-5 h-5" />
+            입학 상담하기
+          </a>
+        </div>
+
+        {/* 카피 */}
         <div className="text-center">
           <h1 className="font-display text-3xl md:text-4xl xl:text-5xl text-[#1E293B] leading-snug mb-3">
             아이의 <span className="crayon-highlight">오늘이 행복한</span> 유치원
@@ -29,25 +67,9 @@ export default function HeroSection() {
           <p className="font-display text-lg md:text-xl text-[#4A9EE0] mb-5">
             {siteConfig.subSlogan}
           </p>
-          <p className="text-[#64748B] leading-relaxed mb-8 max-w-2xl mx-auto">
+          <p className="text-[#64748B] leading-relaxed max-w-2xl mx-auto">
             {siteConfig.description}
           </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={siteConfig.phoneHref}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-md transition-all duration-200 hover:-translate-y-0.5"
-            >
-              <Phone className="w-5 h-5" />
-              입학 상담하기
-            </a>
-            <Link
-              href="/about"
-              className="w-full sm:w-auto border-2 border-[#4A9EE0] text-[#4A9EE0] hover:bg-[#4A9EE0] hover:text-white font-medium px-8 py-4 rounded-full text-lg transition-all duration-200"
-            >
-              유치원 둘러보기
-            </Link>
-          </div>
         </div>
       </div>
 
