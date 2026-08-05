@@ -16,6 +16,7 @@ export default function HeroSection() {
             width={1672}
             height={941}
             className="w-full h-auto hero-blend"
+            sizes="(max-width: 896px) 100vw, 896px"
             priority
           />
         </div>

@@ -7,7 +7,7 @@ export default function AdmissionBanner() {
       <div className="max-w-3xl mx-auto text-center">
         <div className="inline-flex items-center gap-2 bg-white/20 text-white text-sm px-4 py-1.5 rounded-full mb-5">
           <span className="w-2 h-2 rounded-full bg-[#FFD34E] animate-pulse" />
-          2026학년도 신입원아 모집 중
+          신입원아 모집 안내
         </div>
         <h2 className="font-display text-2xl md:text-4xl font-bold text-white mb-4">
           입학 상담을 시작해보세요

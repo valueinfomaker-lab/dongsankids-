@@ -201,7 +201,7 @@ export default function DailyPage() {
             ))}
           </div>
           <p className="text-center text-[#94A3B8] text-xs mt-5">
-            * 2026학년도 입학 유아에 따라 노선이 변경될 수 있습니다
+            * 입학 유아에 따라 노선이 변경될 수 있습니다
           </p>
         </div>
       </section>
