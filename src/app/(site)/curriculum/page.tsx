@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
 import { curriculumIntro, happyDay, fieldTrip } from "@/data/curriculum";
@@ -11,23 +10,6 @@ export const metadata: Metadata = {
   description:
     "동산유치원은 누리과정을 바탕으로 놀이 중심 교육을 운영합니다. 행복한 하루 일과와 교외체험학습을 소개합니다.",
 };
-
-const relatedLinks = [
-  {
-    title: "특색교육",
-    desc: "놀이·프로젝트·생태·인성·독서·예술·유초연계 교육",
-    href: "/programs",
-    emoji: "🌟",
-    color: "#9B7FE8",
-  },
-  {
-    title: "방과후 과정",
-    desc: "교육과 돌봄이 함께하는 편안한 시간과 특성화 프로그램",
-    href: "/afterschool",
-    emoji: "🎭",
-    color: "#F47B5A",
-  },
-];
 
 export default function CurriculumPage() {
   return (
@@ -127,28 +109,6 @@ export default function CurriculumPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* 관련 페이지 링크 */}
-      <section className="py-16 px-4 bg-[#FAFBFF]">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
-          {relatedLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group bg-white border border-[#E2E8F0] rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
-            >
-              <div className="text-4xl mb-4">{link.emoji}</div>
-              <h3
-                className="font-display text-xl font-bold mb-2 group-hover:underline decoration-2 underline-offset-4"
-                style={{ color: link.color }}
-              >
-                {link.title} →
-              </h3>
-              <p className="text-sm text-[#64748B] leading-relaxed">{link.desc}</p>
-            </Link>
-          ))}
         </div>
       </section>
 
