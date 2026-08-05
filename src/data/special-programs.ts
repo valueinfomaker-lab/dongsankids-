@@ -23,6 +23,19 @@ export const specialPrograms: SpecialProgram[] = [
     images: ["/images/programs/play-1.jpg"],
   },
   {
+    id: "project",
+    title: "프로젝트 교육",
+    headline: "아이의 궁금증은 배움에서 시작됩니다",
+    emoji: "🔍",
+    color: "#9B7FE8",
+    paragraphs: [
+      "아이들의 관심과 질문에서 시작하여 하나의 주제를 깊이 있게 탐색합니다.",
+      "관찰, 조사, 실험, 체험, 이야기 나누기 등 다양한 활동을 통해 스스로 답을 찾아가며, 친구들과 생각을 나누고 협력하는 과정에서 창의력과 문제해결력을 키웁니다.",
+      "결과보다 탐색하는 과정을 소중히 여기며, 아이들이 배우는 즐거움과 성취감을 느낄 수 있도록 돕습니다.",
+    ],
+    images: [],
+  },
+  {
     id: "eco",
     title: "자연과 마음을 나누는 생태교육",
     headline: "자연 속에서 몸과 마음이 건강하게 자랍니다",

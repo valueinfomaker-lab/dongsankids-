@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { siteConfig } from "@/data/site";
 
 export default function AdmissionBanner() {
@@ -17,19 +16,13 @@ export default function AdmissionBanner() {
           <br className="hidden sm:block" />
           친절하게 안내드립니다.
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="flex items-center justify-center">
           <a
             href={siteConfig.phoneHref}
             className="w-full sm:w-auto bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg transition-all duration-200 hover:-translate-y-0.5"
           >
             전화 문의하기 →
           </a>
-          <Link
-            href="/admission"
-            className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-medium px-8 py-4 rounded-full text-lg transition-all duration-200"
-          >
-            입학안내 보기
-          </Link>
         </div>
       </div>
     </section>

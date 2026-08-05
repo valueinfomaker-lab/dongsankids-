@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import { parentsIntro, parentPrograms } from "@/data/parents";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
@@ -78,19 +77,13 @@ export default function ParentsPage() {
         <p className="text-[#64748B] mb-4 text-lg">
           상담이 필요하시면 언제든지 연락해 주세요
         </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="flex items-center justify-center">
           <a
             href={siteConfig.phoneHref}
             className="w-full sm:w-auto bg-[#F47B5A] hover:bg-[#e5633f] text-white font-bold px-8 py-4 rounded-full text-lg shadow-md transition-all duration-200 hover:-translate-y-0.5"
           >
             전화 문의하기 →
           </a>
-          <Link
-            href="/contact"
-            className="w-full sm:w-auto border-2 border-[#4A9EE0] text-[#4A9EE0] hover:bg-[#4A9EE0] hover:text-white font-medium px-8 py-4 rounded-full text-lg transition-all duration-200"
-          >
-            오시는 길 · 문의
-          </Link>
         </div>
       </section>
     </div>

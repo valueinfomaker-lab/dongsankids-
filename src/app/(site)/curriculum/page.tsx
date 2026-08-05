@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const relatedLinks = [
   {
     title: "특색교육",
-    desc: "놀이·생태·인성·독서·예술·유초연계 교육",
+    desc: "놀이·프로젝트·생태·인성·독서·예술·유초연계 교육",
     href: "/programs",
     emoji: "🌟",
     color: "#9B7FE8",
@@ -81,15 +81,6 @@ export default function CurriculumPage() {
             ))}
           </div>
           <p className="text-center text-[#94A3B8] text-sm mt-6">{happyDay.note}</p>
-
-          <div className="text-center mt-8">
-            <Link
-              href="/daily"
-              className="inline-block border-2 border-[#4A9EE0] text-[#4A9EE0] hover:bg-[#4A9EE0] hover:text-white font-medium px-6 py-3 rounded-full transition-all duration-200"
-            >
-              시간별 하루 일과 자세히 보기 →
-            </Link>
-          </div>
         </div>
       </section>
 

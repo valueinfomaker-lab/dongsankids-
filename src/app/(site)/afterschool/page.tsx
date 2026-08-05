@@ -12,7 +12,7 @@ import PageHeader from "@/components/ui/PageHeader";
 export const metadata: Metadata = {
   title: "방과후 과정",
   description:
-    "동산유치원 방과후 과정 안내. 교육과 돌봄이 함께하는 편안한 시간과 K-POP, 체육, 도예, 블록 특성화 프로그램을 소개합니다.",
+    "동산유치원 방과후과정 안내. 교육과 돌봄이 함께하는 편안한 시간과 영어, K-POP, 체육, 도예, 오감퍼포먼스, 블록 특성화 프로그램을 소개합니다.",
 };
 
 export default function AfterschoolPage() {

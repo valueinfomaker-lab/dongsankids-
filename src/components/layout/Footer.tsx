@@ -8,13 +8,11 @@ const quickLinks = [
   { label: "교육환경", href: "/facilities" },
   { label: "교육과정", href: "/curriculum" },
   { label: "특색교육", href: "/programs" },
-  { label: "방과후 과정", href: "/afterschool" },
-  { label: "학부모 참여", href: "/parents" },
-  { label: "입학안내", href: "/admission" },
-  { label: "사진첩", href: "/gallery" },
-  { label: "공지사항", href: "/notice" },
-  { label: "문의", href: "/contact" },
+  { label: "방과후과정", href: "/afterschool" },
+  { label: "학부모참여", href: "/parents" },
 ];
+
+const MAP_QUERY = encodeURIComponent(`${siteConfig.address} 동산유치원`);
 
 export default function Footer() {
   return (
@@ -62,7 +60,27 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-sm text-white/70">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#4A9EE0]" />
-                {siteConfig.address}
+                <span>
+                  {siteConfig.address}
+                  <span className="block mt-1 space-x-3">
+                    <a
+                      href={`https://map.naver.com/p/search/${MAP_QUERY}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#5BE58B] hover:underline text-xs font-medium"
+                    >
+                      네이버지도
+                    </a>
+                    <a
+                      href={`https://map.kakao.com/link/search/${MAP_QUERY}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#FFD34E] hover:underline text-xs font-medium"
+                    >
+                      카카오맵
+                    </a>
+                  </span>
+                </span>
               </li>
               <li>
                 <a
