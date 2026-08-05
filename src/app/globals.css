@@ -70,6 +70,18 @@ body {
   }
 }
 
+/* 히어로 일러스트 가장자리를 배경으로 부드럽게 페이드 */
+.hero-blend {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, black 7%, black 93%, transparent),
+    linear-gradient(to bottom, transparent, black 7%, black 93%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, black 7%, black 93%, transparent),
+    linear-gradient(to bottom, transparent, black 7%, black 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
 /* 크레용 형광펜 하이라이트 (글자 아래쪽 반을 칠한 느낌) */
 .crayon-highlight {
   background-image: linear-gradient(
