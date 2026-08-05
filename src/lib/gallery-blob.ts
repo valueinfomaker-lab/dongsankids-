@@ -12,7 +12,7 @@ export interface GalleryBlobItem {
 }
 
 // 고정 키 덮어쓰기는 CDN 캐시(최대 60초, 쿼리 무시)로 낡은 읽기가 발생하므로
-// 쓰기마다 랜덤 suffix로 새 URL을 만들고 이전 blob을 삭제한다 (inquiry-blob과 동일 패턴)
+// 쓰기마다 랜덤 suffix로 새 URL을 만들고 이전 blob을 삭제한다
 const METADATA_PREFIX = "gallery/metadata";
 
 function isBlobConfigured(): boolean {

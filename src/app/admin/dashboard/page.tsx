@@ -3,12 +3,10 @@
 import { useState } from "react";
 import AdminHeader from "@/components/admin/AdminHeader";
 import GalleryManager from "@/components/admin/GalleryManager";
-import InquiryManager from "@/components/admin/InquiryManager";
 import NoticeManager from "@/components/admin/NoticeManager";
 
 const TABS = [
   { key: "gallery", label: "사진 관리" },
-  { key: "inquiry", label: "입학 문의" },
   { key: "notice", label: "공지사항" },
 ] as const;
 
@@ -40,7 +38,6 @@ export default function AdminDashboard() {
         </div>
 
         {activeTab === "gallery" && <GalleryManager />}
-        {activeTab === "inquiry" && <InquiryManager />}
         {activeTab === "notice" && <NoticeManager />}
       </div>
     </div>
