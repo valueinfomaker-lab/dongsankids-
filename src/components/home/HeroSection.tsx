@@ -18,16 +18,19 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
         {/* 메인 헤드라인 */}
         <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
-          아이가 행복한 곳,
+          아이의 오늘이 행복한 유치원
           <br />
-          <span className="text-[#FFD34E]">부모가 안심하는 곳</span>
+          <span className="text-[#FFD34E]">놀이로 배우고 사랑으로 성장합니다</span>
         </h1>
 
         {/* 서브 텍스트 */}
-        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-xl mx-auto leading-relaxed drop-shadow">
-          동산유치원은 놀이와 자연 속에서
+        <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow">
+          동산유치원은 아이 한 명, 한 명의 생각과 마음을 존중하며, 놀이와 다양한
+          경험을 통해 아이들이 행복하게 배우고 건강하게 성장할 수 있도록
+          함께합니다.
           <br className="hidden sm:block" />
-          아이가 스스로 자랄 수 있도록 돕습니다.
+          따뜻한 사랑, 즐거운 배움, 안전한 교육환경 속에서 아이들의 꿈과
+          가능성이 아름답게 자라납니다.
         </p>
 
         {/* CTA 버튼 */}

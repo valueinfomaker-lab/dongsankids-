@@ -1,13 +1,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import { programs } from "@/data/curriculum";
+import { curriculumIntro, happyDay, fieldTrip } from "@/data/curriculum";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "교육과정",
-  description: "동산유치원의 5가지 교육과정: 자연생태교육, 놀이프로젝트, 인성교육, 독서·언어교육, 방과후 특기활동",
+  description:
+    "동산유치원은 누리과정을 바탕으로 놀이 중심 교육을 운영합니다. 행복한 하루 일과와 교외체험학습을 소개합니다.",
 };
+
+const relatedLinks = [
+  {
+    title: "특색교육",
+    desc: "놀이·프로젝트·생태·인성·독서·예술·유초연계 교육",
+    href: "/programs",
+    emoji: "🌟",
+    color: "#9B7FE8",
+  },
+  {
+    title: "방과후 과정",
+    desc: "교육과 돌봄이 함께하는 편안한 시간과 특성화 프로그램",
+    href: "/afterschool",
+    emoji: "🎭",
+    color: "#F47B5A",
+  },
+];
 
 export default function CurriculumPage() {
   return (
@@ -18,63 +36,136 @@ export default function CurriculumPage() {
           교육과정
         </h1>
         <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          아이가 묻고, 탐구하고, 스스로 배웁니다
+          놀이하며 발견하고, 경험하며 성장합니다
         </p>
       </section>
 
-      {/* 교육 프로그램 */}
+      {/* 교육과정 안내 */}
       <section className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto space-y-8">
-          {programs.map((program, index) => (
-            <div
-              key={program.id}
-              className={`flex flex-col ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } gap-8 items-center bg-[#FAFBFF] rounded-3xl p-6 md:p-10 border border-[#E2E8F0]`}
-            >
-              {/* 이미지 영역 */}
-              <div className="relative flex-shrink-0 w-full md:w-72 h-48 md:h-56 rounded-2xl overflow-hidden"
-                style={{ backgroundColor: `${program.color}15` }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            <div className="flex-shrink-0 w-full md:w-96">
+              <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden shadow-lg">
                 <Image
-                  src={program.image}
-                  alt={program.title}
+                  src={curriculumIntro.image}
+                  alt="놀이 중심 교육 활동 모습"
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 288px"
+                  sizes="(max-width: 768px) 100vw, 384px"
                 />
               </div>
-
-              {/* 텍스트 */}
-              <div className="flex-1">
-                <div
-                  className="inline-block text-sm font-medium px-3 py-1 rounded-full mb-3"
-                  style={{ backgroundColor: `${program.color}20`, color: program.color }}
-                >
-                  {program.title}
-                </div>
-                <h2 className="font-display text-xl md:text-2xl font-bold text-[#1E293B] mb-2">
-                  {program.tagline}
-                </h2>
-                <p className="text-[#64748B] leading-relaxed mb-4 text-sm md:text-base">
-                  {program.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {program.activities.map((act) => (
-                    <span
-                      key={act}
-                      className="text-xs font-medium px-3 py-1.5 rounded-full border"
-                      style={{
-                        borderColor: `${program.color}40`,
-                        color: program.color,
-                        backgroundColor: `${program.color}10`,
-                      }}
-                    >
-                      {act}
-                    </span>
-                  ))}
-                </div>
+            </div>
+            <div>
+              <div className="inline-block bg-[#F0FFF4] text-[#5BB85D] text-sm font-medium px-3 py-1 rounded-full mb-4">
+                교육과정 안내
+              </div>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-5 leading-snug">
+                {curriculumIntro.title}
+              </h2>
+              <div className="space-y-3">
+                {curriculumIntro.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="text-[#64748B] leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 행복한 하루 */}
+      <section className="py-16 px-4 bg-[#FAFBFF]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-block bg-[#FFF8EB] text-[#F4A93B] text-sm font-medium px-3 py-1 rounded-full mb-4">
+              {happyDay.title}
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B]">
+              {happyDay.headline}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {happyDay.items.map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-3 bg-white border border-[#E2E8F0] rounded-2xl px-5 py-4"
+              >
+                <span className="text-2xl">{item.emoji}</span>
+                <span className="text-[#334155] font-medium">{item.label}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-[#94A3B8] text-sm mt-6">{happyDay.note}</p>
+
+          <div className="text-center mt-8">
+            <Link
+              href="/daily"
+              className="inline-block border-2 border-[#4A9EE0] text-[#4A9EE0] hover:bg-[#4A9EE0] hover:text-white font-medium px-6 py-3 rounded-full transition-all duration-200"
+            >
+              시간별 하루 일과 자세히 보기 →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 교외체험학습 */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <div className="inline-block bg-[#EBF5FF] text-[#4A9EE0] text-sm font-medium px-3 py-1 rounded-full mb-4">
+              {fieldTrip.title}
+            </div>
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-4">
+              {fieldTrip.headline}
+            </h2>
+            <div className="max-w-2xl mx-auto space-y-2">
+              {fieldTrip.paragraphs.map((paragraph) => (
+                <p key={paragraph} className="text-[#64748B] leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+            {fieldTrip.images.map((image, index) => (
+              <div
+                key={image}
+                className="relative h-64 md:h-80 rounded-2xl overflow-hidden shadow-md"
+              >
+                <Image
+                  src={image}
+                  alt={`교외체험학습 활동 모습 ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 336px"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 관련 페이지 링크 */}
+      <section className="py-16 px-4 bg-[#FAFBFF]">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
+          {relatedLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="group bg-white border border-[#E2E8F0] rounded-2xl p-8 hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+            >
+              <div className="text-4xl mb-4">{link.emoji}</div>
+              <h3
+                className="font-display text-xl font-bold mb-2 group-hover:underline decoration-2 underline-offset-4"
+                style={{ color: link.color }}
+              >
+                {link.title} →
+              </h3>
+              <p className="text-sm text-[#64748B] leading-relaxed">{link.desc}</p>
+            </Link>
           ))}
         </div>
       </section>

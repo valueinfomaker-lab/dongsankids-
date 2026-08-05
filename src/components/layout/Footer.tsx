@@ -1,14 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock, Printer, Mail } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
 const quickLinks = [
   { label: "유치원 소개", href: "/about" },
+  { label: "교육환경", href: "/facilities" },
   { label: "교육과정", href: "/curriculum" },
-  { label: "하루 일과", href: "/daily" },
-  { label: "사진첩", href: "/gallery" },
+  { label: "특색교육", href: "/programs" },
+  { label: "방과후 과정", href: "/afterschool" },
+  { label: "학부모 참여", href: "/parents" },
   { label: "입학안내", href: "/admission" },
+  { label: "사진첩", href: "/gallery" },
   { label: "공지사항", href: "/notice" },
   { label: "문의", href: "/contact" },
 ];
@@ -29,13 +32,7 @@ export default function Footer() {
                 className="h-14 w-auto object-contain"
               />
             </div>
-            <p className="text-sm text-white/70 leading-relaxed">
-              아이가 행복한 곳,
-              <br />
-              부모가 안심하는 곳.
-              <br />
-              놀이와 자연 속에서 스스로 자랍니다.
-            </p>
+            <p className="text-sm text-white/70 leading-relaxed">{siteConfig.intro}</p>
           </div>
 
           {/* 빠른 링크 */}
@@ -74,6 +71,19 @@ export default function Footer() {
                 >
                   <Phone className="w-4 h-4 flex-shrink-0 text-[#4A9EE0]" />
                   {siteConfig.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-2 text-sm text-white/70">
+                <Printer className="w-4 h-4 flex-shrink-0 text-[#4A9EE0]" />
+                팩스 {siteConfig.fax}
+              </li>
+              <li>
+                <a
+                  href={`mailto:${siteConfig.email}`}
+                  className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors"
+                >
+                  <Mail className="w-4 h-4 flex-shrink-0 text-[#4A9EE0]" />
+                  {siteConfig.email}
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-white/70">

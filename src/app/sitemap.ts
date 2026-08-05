@@ -8,8 +8,12 @@ export const dynamic = "force-dynamic";
 const staticPaths = [
   "",
   "/about",
+  "/facilities",
   "/curriculum",
   "/daily",
+  "/programs",
+  "/afterschool",
+  "/parents",
   "/admission",
   "/contact",
   "/gallery",

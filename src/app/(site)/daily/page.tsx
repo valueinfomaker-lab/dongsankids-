@@ -64,7 +64,7 @@ export default function DailyPage() {
           하루 일과
         </h1>
         <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          아이의 하루를 함께 들여다보세요
+          아이의 몸과 마음을 살피며 여유 있게 운영합니다
         </p>
       </section>
 
@@ -147,6 +147,10 @@ export default function DailyPage() {
               </div>
             </div>
           ))}
+          <p className="text-center text-[#94A3B8] text-sm">
+            하루 일과는 아이들의 놀이와 건강 상태, 날씨와 교육활동에 따라
+            유연하게 운영합니다.
+          </p>
         </div>
       </section>
 
