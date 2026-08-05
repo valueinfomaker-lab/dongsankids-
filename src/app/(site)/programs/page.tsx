@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { specialPrograms } from "@/data/special-programs";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "특색교육",
@@ -19,6 +20,17 @@ export default function ProgramsPage() {
         subtitle="아이의 작은 관심에서 큰 배움이 시작됩니다"
         gradient="from-[#F5F0FF] to-[#F0FFF4]"
       />
+      <SectionNav
+        items={[
+          { label: "놀이교육", href: "#play" },
+          { label: "프로젝트교육", href: "#project" },
+          { label: "생태교육", href: "#eco" },
+          { label: "인성교육", href: "#character" },
+          { label: "독서교육", href: "#reading" },
+          { label: "예술교육", href: "#art" },
+          { label: "유·초연계교육", href: "#transition" },
+        ]}
+      />
 
       {/* 특색교육 프로그램 */}
       <section className="py-16 px-4 bg-white">
@@ -26,7 +38,9 @@ export default function ProgramsPage() {
           {specialPrograms.map((program) => (
             <div
               key={program.id}
-              className="bg-[#FAFBFF] border border-[#E2E8F0] rounded-3xl p-6 md:p-10"
+              id={program.id}
+              className="bg-[#FAFBFF] border border-[#E2E8F0] border-t-4 rounded-3xl p-6 md:p-10"
+              style={{ borderTopColor: program.color }}
             >
               <div className="flex items-center gap-4 mb-3">
                 <div

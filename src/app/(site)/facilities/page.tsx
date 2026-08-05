@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { facilitiesIntro, facilities } from "@/data/facilities";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "교육환경",
@@ -19,9 +20,17 @@ export default function FacilitiesPage() {
         subtitle="안전하고 쾌적한 공간에서 마음껏 꿈을 키웁니다"
         gradient="from-[#EBF5FF] to-[#FFF8EB]"
       />
+      <SectionNav
+        items={[
+          { label: "시설소개", href: "#intro" },
+          { label: "교실", href: "#classroom" },
+          { label: "실내 놀이공간", href: "#indoor-playground" },
+          { label: "조리실", href: "#kitchen" },
+        ]}
+      />
 
       {/* 시설 소개 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="intro" className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="flex-shrink-0 w-full md:w-96">
@@ -60,7 +69,9 @@ export default function FacilitiesPage() {
           {facilities.map((facility) => (
             <div
               key={facility.id}
-              className="bg-white border border-[#E2E8F0] rounded-3xl p-8 md:p-10"
+              id={facility.id}
+              className="bg-white border border-[#E2E8F0] border-t-4 rounded-3xl p-8 md:p-10"
+              style={{ borderTopColor: facility.color }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div

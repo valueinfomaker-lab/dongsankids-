@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { siteConfig } from "@/data/site";
 import { greeting, philosophy, motto, educationGoals } from "@/data/about";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "유치원 소개",
@@ -19,9 +20,17 @@ export default function AboutPage() {
         subtitle="동산유치원을 소개합니다"
         gradient="from-[#EBF5FF] to-[#F0FFF4]"
       />
+      <SectionNav
+        items={[
+          { label: "원장인사말", href: "#greeting" },
+          { label: "설립이념", href: "#philosophy" },
+          { label: "원훈", href: "#motto" },
+          { label: "교육목표", href: "#goals" },
+        ]}
+      />
 
       {/* 원장 인사말 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="greeting" className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <div className="inline-block bg-[#EBF5FF] text-[#4A9EE0] text-sm font-medium px-3 py-1 rounded-full mb-4">
@@ -45,7 +54,7 @@ export default function AboutPage() {
       </section>
 
       {/* 설립 이념 */}
-      <section className="py-16 px-4 bg-[#FAFBFF]">
+      <section id="philosophy" className="py-16 px-4 bg-[#FAFBFF]">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row gap-10 items-center">
             <div className="flex-shrink-0 w-full md:w-96">
@@ -79,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* 원훈 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="motto" className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-[#FFF8EB] text-[#F4A93B] text-sm font-medium px-3 py-1 rounded-full mb-4">
             원훈
@@ -91,7 +100,7 @@ export default function AboutPage() {
       </section>
 
       {/* 교육 목표 */}
-      <section className="py-16 px-4 bg-[#FAFBFF]">
+      <section id="goals" className="py-16 px-4 bg-[#FAFBFF]">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-2">

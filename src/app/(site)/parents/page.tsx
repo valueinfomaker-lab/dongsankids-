@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { parentsIntro, parentPrograms } from "@/data/parents";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "학부모 참여",
@@ -18,9 +19,17 @@ export default function ParentsPage() {
         subtitle="가정과 유치원이 함께 만드는 행복한 성장"
         gradient="from-[#F0FFF4] to-[#FFF5F2]"
       />
+      <SectionNav
+        items={[
+          { label: "가정연계교육", href: "#family" },
+          { label: "학부모상담", href: "#counseling" },
+          { label: "부모행복교실", href: "#happy-class" },
+          { label: "학부모참여수업", href: "#open-class" },
+        ]}
+      />
 
       {/* 가정 연계교육 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="family" className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-[#F0FFF4] text-[#5BB85D] text-sm font-medium px-3 py-1 rounded-full mb-4">
             가정 연계교육
@@ -44,7 +53,9 @@ export default function ParentsPage() {
           {parentPrograms.map((program) => (
             <div
               key={program.id}
-              className="bg-white border border-[#E2E8F0] rounded-3xl p-8 md:p-10"
+              id={program.id}
+              className="bg-white border border-[#E2E8F0] border-t-4 rounded-3xl p-8 md:p-10"
+              style={{ borderTopColor: program.color }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div

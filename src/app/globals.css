@@ -25,6 +25,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* 고정 헤더(4rem)에 가려지지 않도록 앵커 이동 시 여백 확보 */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-text);

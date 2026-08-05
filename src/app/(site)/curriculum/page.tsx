@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { curriculumIntro, happyDay, fieldTrip } from "@/data/curriculum";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "교육과정",
@@ -37,9 +38,16 @@ export default function CurriculumPage() {
         subtitle="놀이하며 발견하고, 경험하며 성장합니다"
         gradient="from-[#F0FFF4] to-[#EBF5FF]"
       />
+      <SectionNav
+        items={[
+          { label: "교육과정안내", href: "#intro" },
+          { label: "행복한하루", href: "#happy-day" },
+          { label: "교외체험학습", href: "#field-trip" },
+        ]}
+      />
 
       {/* 교육과정 안내 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="intro" className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-[#F0FFF4] text-[#5BB85D] text-sm font-medium px-3 py-1 rounded-full mb-4">
             교육과정 안내
@@ -58,7 +66,7 @@ export default function CurriculumPage() {
       </section>
 
       {/* 행복한 하루 */}
-      <section className="py-16 px-4 bg-[#FAFBFF]">
+      <section id="happy-day" className="py-16 px-4 bg-[#FAFBFF]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
             <div className="inline-block bg-[#FFF8EB] text-[#F4A93B] text-sm font-medium px-3 py-1 rounded-full mb-4">
@@ -85,7 +93,7 @@ export default function CurriculumPage() {
       </section>
 
       {/* 교외체험학습 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="field-trip" className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <div className="inline-block bg-[#EBF5FF] text-[#4A9EE0] text-sm font-medium px-3 py-1 rounded-full mb-4">

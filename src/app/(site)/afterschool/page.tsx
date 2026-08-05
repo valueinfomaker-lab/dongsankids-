@@ -8,6 +8,7 @@ import {
 } from "@/data/afterschool";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
+import SectionNav from "@/components/ui/SectionNav";
 
 export const metadata: Metadata = {
   title: "방과후 과정",
@@ -24,9 +25,16 @@ export default function AfterschoolPage() {
         subtitle="교육과 돌봄이 함께하는 편안한 시간"
         gradient="from-[#FFF5F2] to-[#F5F0FF]"
       />
+      <SectionNav
+        items={[
+          { label: "방과후과정안내", href: "#intro" },
+          { label: "방과후활동", href: "#activities" },
+          { label: "특성화프로그램", href: "#specialty" },
+        ]}
+      />
 
       {/* 방과후 과정 안내 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="intro" className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block bg-[#FFF5F2] text-[#F47B5A] text-sm font-medium px-3 py-1 rounded-full mb-4">
             방과후 과정 안내
@@ -45,7 +53,7 @@ export default function AfterschoolPage() {
       </section>
 
       {/* 방과후 활동 */}
-      <section className="py-16 px-4 bg-[#FAFBFF]">
+      <section id="activities" className="py-16 px-4 bg-[#FAFBFF]">
         <div className="max-w-4xl mx-auto">
           <h2 className="font-display text-2xl font-bold text-[#1E293B] text-center mb-8">
             방과후 활동
@@ -67,7 +75,7 @@ export default function AfterschoolPage() {
       </section>
 
       {/* 특성화 프로그램 */}
-      <section className="py-16 px-4 bg-white">
+      <section id="specialty" className="py-16 px-4 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
             <div className="inline-block bg-[#F5F0FF] text-[#9B7FE8] text-sm font-medium px-3 py-1 rounded-full mb-4">

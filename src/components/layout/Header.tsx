@@ -4,17 +4,75 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { siteConfig } from "@/data/site";
 
-const navItems = [
+type NavChild = { label: string; href: string };
+type NavItem = { label: string; href: string; children?: NavChild[] };
+
+const navItems: NavItem[] = [
   { label: "홈", href: "/" },
-  { label: "유치원 소개", href: "/about" },
-  { label: "교육환경", href: "/facilities" },
-  { label: "교육과정", href: "/curriculum" },
-  { label: "특색교육", href: "/programs" },
-  { label: "방과후과정", href: "/afterschool" },
-  { label: "학부모참여", href: "/parents" },
+  {
+    label: "유치원 소개",
+    href: "/about",
+    children: [
+      { label: "원장인사말", href: "/about#greeting" },
+      { label: "설립이념", href: "/about#philosophy" },
+      { label: "원훈", href: "/about#motto" },
+      { label: "교육목표", href: "/about#goals" },
+    ],
+  },
+  {
+    label: "교육환경",
+    href: "/facilities",
+    children: [
+      { label: "시설소개", href: "/facilities#intro" },
+      { label: "교실", href: "/facilities#classroom" },
+      { label: "실내 놀이공간", href: "/facilities#indoor-playground" },
+      { label: "조리실", href: "/facilities#kitchen" },
+    ],
+  },
+  {
+    label: "교육과정",
+    href: "/curriculum",
+    children: [
+      { label: "교육과정안내", href: "/curriculum#intro" },
+      { label: "행복한하루", href: "/curriculum#happy-day" },
+      { label: "교외체험학습", href: "/curriculum#field-trip" },
+    ],
+  },
+  {
+    label: "특색교육",
+    href: "/programs",
+    children: [
+      { label: "놀이교육", href: "/programs#play" },
+      { label: "프로젝트교육", href: "/programs#project" },
+      { label: "생태교육", href: "/programs#eco" },
+      { label: "인성교육", href: "/programs#character" },
+      { label: "독서교육", href: "/programs#reading" },
+      { label: "예술교육", href: "/programs#art" },
+      { label: "유·초연계교육", href: "/programs#transition" },
+    ],
+  },
+  {
+    label: "방과후과정",
+    href: "/afterschool",
+    children: [
+      { label: "방과후과정안내", href: "/afterschool#intro" },
+      { label: "방과후활동", href: "/afterschool#activities" },
+      { label: "특성화프로그램", href: "/afterschool#specialty" },
+    ],
+  },
+  {
+    label: "학부모참여",
+    href: "/parents",
+    children: [
+      { label: "가정연계교육", href: "/parents#family" },
+      { label: "학부모상담", href: "/parents#counseling" },
+      { label: "부모행복교실", href: "/parents#happy-class" },
+      { label: "학부모참여수업", href: "/parents#open-class" },
+    ],
+  },
 ];
 
 export default function Header() {
@@ -72,16 +130,41 @@ export default function Header() {
           </Link>
 
           {/* 데스크톱 네비게이션 */}
-          <nav className="hidden md:flex items-center gap-5">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm text-[#1E293B] hover:text-[#4A9EE0] transition-colors font-medium"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center gap-4 lg:gap-5">
+            {navItems.map((item) =>
+              item.children ? (
+                <div key={item.href} className="relative group">
+                  <Link
+                    href={item.href}
+                    className="flex items-center gap-0.5 text-sm text-[#1E293B] hover:text-[#4A9EE0] transition-colors font-medium py-2"
+                  >
+                    {item.label}
+                    <ChevronDown className="w-3.5 h-3.5" />
+                  </Link>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block group-focus-within:block">
+                    <div className="bg-white rounded-2xl shadow-lg border border-[#E2E8F0] py-2 w-44 mt-1">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block px-5 py-2.5 text-sm text-[#1E293B] hover:bg-[#F0F5FF] hover:text-[#4A9EE0] transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-[#1E293B] hover:text-[#4A9EE0] transition-colors font-medium"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* 데스크톱 CTA */}
@@ -150,10 +233,24 @@ export default function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block px-6 py-4 text-base font-medium text-[#1E293B] hover:bg-[#F0F5FF] hover:text-[#4A9EE0] transition-colors border-b border-gray-50"
+                  className="block px-6 py-3.5 text-base font-bold text-[#1E293B] hover:bg-[#F0F5FF] hover:text-[#4A9EE0] transition-colors border-b border-gray-50"
                 >
                   {item.label}
                 </Link>
+                {item.children && (
+                  <div className="pb-2">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setMenuOpen(false)}
+                        className="block pl-10 pr-6 py-2 text-sm text-[#64748B] hover:bg-[#F0F5FF] hover:text-[#4A9EE0] transition-colors"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
