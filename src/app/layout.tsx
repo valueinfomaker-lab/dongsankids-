@@ -30,16 +30,15 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     type: "website",
     siteName: siteConfig.name,
-    url: siteConfig.url,
     title: `${siteConfig.name} | ${siteConfig.slogan}`,
     description: "놀이로 배우고 사랑으로 성장합니다. 동산유치원은 아이 한 명, 한 명의 생각과 마음을 존중합니다.",
-    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/images/og-hero.jpg", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.slogan}`,
     description: "놀이로 배우고 사랑으로 성장합니다. 동산유치원은 아이 한 명, 한 명의 생각과 마음을 존중합니다.",
-    images: ["/images/og-image.jpg"],
+    images: ["/images/og-hero.jpg"],
   },
 };
 

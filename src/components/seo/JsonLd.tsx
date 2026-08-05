@@ -7,7 +7,7 @@ const schema = {
   description: siteConfig.description,
   url: siteConfig.url,
   logo: `${siteConfig.url}/images/logo.jpg`,
-  image: `${siteConfig.url}/images/og-image.jpg`,
+  image: `${siteConfig.url}/images/og-hero.jpg`,
   telephone: "+82-2-866-6571",
   address: {
     "@type": "PostalAddress",
