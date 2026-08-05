@@ -70,18 +70,9 @@ export default function ContactPage() {
           </div>
 
           {/* 오시는 길 */}
-          <div className="w-full rounded-2xl overflow-hidden border border-[#E2E8F0] mb-4" style={{ height: "400px" }}>
-            <iframe
-              src="https://maps.google.com/maps?q=서울시+금천구+시흥대로+152길+35+동산유치원&output=embed&hl=ko&z=17&t=m"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="동산유치원 위치"
-            />
-          </div>
+          <h2 className="font-display text-xl font-bold text-[#1E293B] text-center mb-4">
+            오시는 길
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <a
               href={NAVER_MAP_URL}
