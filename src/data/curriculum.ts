@@ -5,7 +5,6 @@ export const curriculumIntro = {
     "아이들은 스스로 선택한 놀이를 통해 생각하고, 질문하고, 친구와 의견을 나누며 자연스럽게 배웁니다.",
     "교사는 아이들의 놀이를 세심하게 관찰하고 필요한 공간과 자료를 제공하여, 놀이가 더욱 풍성한 배움으로 이어지도록 돕습니다.",
   ],
-  image: "/images/programs/play-1.jpg",
 };
 
 export const happyDay = {

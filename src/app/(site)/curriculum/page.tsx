@@ -40,34 +40,19 @@ export default function CurriculumPage() {
 
       {/* 교육과정 안내 */}
       <section className="py-16 px-4 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-10 items-center">
-            <div className="flex-shrink-0 w-full md:w-96">
-              <div className="relative w-full h-72 md:h-80 rounded-2xl overflow-hidden shadow-lg">
-                <Image
-                  src={curriculumIntro.image}
-                  alt="놀이 중심 교육 활동 모습"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 384px"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="inline-block bg-[#F0FFF4] text-[#5BB85D] text-sm font-medium px-3 py-1 rounded-full mb-4">
-                교육과정 안내
-              </div>
-              <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-5 leading-snug">
-                {curriculumIntro.title}
-              </h2>
-              <div className="space-y-3">
-                {curriculumIntro.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="text-[#64748B] leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="inline-block bg-[#F0FFF4] text-[#5BB85D] text-sm font-medium px-3 py-1 rounded-full mb-4">
+            교육과정 안내
+          </div>
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-5 leading-snug">
+            {curriculumIntro.title}
+          </h2>
+          <div className="space-y-3">
+            {curriculumIntro.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-[#64748B] leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
           </div>
         </div>
       </section>
