@@ -97,7 +97,8 @@ export default function AfterschoolPage() {
             {specialtyPrograms.map((program) => (
               <div
                 key={program.id}
-                className="bg-[#FAFBFF] border border-[#E2E8F0] rounded-3xl p-7"
+                className="border border-[#E2E8F0] border-t-4 rounded-3xl p-7"
+                style={{ borderTopColor: program.color, backgroundColor: `${program.color}0D` }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div

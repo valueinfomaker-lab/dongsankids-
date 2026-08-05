@@ -99,7 +99,8 @@ export default function AboutPage() {
             {educationGoals.map((goal) => (
               <div
                 key={goal.title}
-                className="bg-white border border-[#E2E8F0] rounded-2xl p-8 hover:shadow-md transition-shadow"
+                className="border border-[#E2E8F0] border-t-4 rounded-2xl p-8 hover:shadow-md transition-shadow"
+                style={{ borderTopColor: goal.color, backgroundColor: `${goal.color}0D` }}
               >
                 <div className="text-4xl mb-4">{goal.emoji}</div>
                 <h3

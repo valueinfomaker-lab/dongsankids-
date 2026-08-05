@@ -70,8 +70,8 @@ export default function FacilitiesPage() {
             <div
               key={facility.id}
               id={facility.id}
-              className="bg-white border border-[#E2E8F0] border-t-4 rounded-3xl p-8 md:p-10"
-              style={{ borderTopColor: facility.color }}
+              className="border border-[#E2E8F0] border-t-4 rounded-3xl p-8 md:p-10"
+              style={{ borderTopColor: facility.color, backgroundColor: `${facility.color}0D` }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div

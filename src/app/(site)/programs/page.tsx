@@ -39,8 +39,8 @@ export default function ProgramsPage() {
             <div
               key={program.id}
               id={program.id}
-              className="bg-[#FAFBFF] border border-[#E2E8F0] border-t-4 rounded-3xl p-6 md:p-10"
-              style={{ borderTopColor: program.color }}
+              className="border border-[#E2E8F0] border-t-4 rounded-3xl p-6 md:p-10"
+              style={{ borderTopColor: program.color, backgroundColor: `${program.color}0D` }}
             >
               <div className="flex items-center gap-4 mb-3">
                 <div
