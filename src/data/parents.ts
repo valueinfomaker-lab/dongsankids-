@@ -1,21 +1,25 @@
-export const parentsIntro = {
-  title: "가정과 유치원이 함께할 때 아이의 행복은 더욱 커집니다",
-  paragraphs: [
-    "유아의 건강한 성장을 위해 가정과 유치원의 긴밀한 협력이 중요합니다.",
-    "동산유치원은 가정통신문, 상담, 학부모 참여수업, 부모교육 등을 통해 유아의 생활과 발달을 함께 나누고 있습니다.",
-    "학부모님의 의견에 귀 기울이며 서로 신뢰하고 소통하는 교육공동체를 만들어가겠습니다.",
-  ],
-};
-
 export type ParentProgram = {
   id: string;
   title: string;
   emoji: string;
   color: string;
+  headline?: string;
   paragraphs: string[];
 };
 
 export const parentPrograms: ParentProgram[] = [
+  {
+    id: "family",
+    title: "가정 연계교육",
+    emoji: "🏠",
+    color: "#5BB85D",
+    headline: "가정과 유치원이 함께할 때 아이의 행복은 더욱 커집니다",
+    paragraphs: [
+      "유아의 건강한 성장을 위해 가정과 유치원의 긴밀한 협력이 중요합니다.",
+      "동산유치원은 가정통신문, 상담, 학부모 참여수업, 부모교육 등을 통해 유아의 생활과 발달을 함께 나누고 있습니다.",
+      "학부모님의 의견에 귀 기울이며 서로 신뢰하고 소통하는 교육공동체를 만들어가겠습니다.",
+    ],
+  },
   {
     id: "counseling",
     title: "학부모 상담",
@@ -41,7 +45,7 @@ export const parentPrograms: ParentProgram[] = [
     id: "open-class",
     title: "학부모 참여수업",
     emoji: "👨‍👩‍👧",
-    color: "#5BB85D",
+    color: "#F4A93B",
     paragraphs: [
       "아이와 부모님이 유치원에서 함께 놀이하며 서로의 마음을 가까이 느낄 수 있는 시간을 마련합니다.",
       "아이에게는 자랑스럽고 행복한 추억이 되고, 부모님께는 아이의 유치원 생활을 이해하는 특별한 시간이 됩니다.",

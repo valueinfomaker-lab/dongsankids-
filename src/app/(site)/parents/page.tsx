@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { parentsIntro, parentPrograms } from "@/data/parents";
+import { parentPrograms } from "@/data/parents";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
 import SectionNav from "@/components/ui/SectionNav";
@@ -28,25 +28,6 @@ export default function ParentsPage() {
         ]}
       />
 
-      {/* 가정 연계교육 */}
-      <section id="family" className="py-16 px-4 bg-white">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-block bg-[#F0FFF4] text-[#5BB85D] text-sm font-medium px-3 py-1 rounded-full mb-4">
-            가정 연계교육
-          </div>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-5 leading-snug">
-            {parentsIntro.title}
-          </h2>
-          <div className="space-y-3">
-            {parentsIntro.paragraphs.map((paragraph) => (
-              <p key={paragraph} className="text-[#64748B] leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 참여 프로그램 */}
       <section className="py-16 px-4 bg-[#FAFBFF]">
         <div className="max-w-4xl mx-auto space-y-6">
@@ -64,12 +45,19 @@ export default function ParentsPage() {
                 >
                   {program.emoji}
                 </div>
-                <h2
-                  className="font-display text-xl md:text-2xl font-bold"
-                  style={{ color: program.color }}
-                >
-                  {program.title}
-                </h2>
+                <div>
+                  <h2
+                    className="font-display text-xl md:text-2xl font-bold"
+                    style={{ color: program.color }}
+                  >
+                    {program.title}
+                  </h2>
+                  {program.headline && (
+                    <p className="font-bold text-[#1E293B] mt-0.5">
+                      {program.headline}
+                    </p>
+                  )}
+                </div>
               </div>
               <div className="space-y-2">
                 {program.paragraphs.map((paragraph) => (
