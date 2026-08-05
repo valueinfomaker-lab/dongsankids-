@@ -43,3 +43,39 @@ body {
   background: #cbd5e1;
   border-radius: 3px;
 }
+
+/* 크레용 낙서: 둥실 떠다니는 장식 */
+@keyframes gentle-float {
+  from {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: translateY(6px);
+  }
+}
+
+.animate-float {
+  animation: gentle-float 5s ease-in-out infinite alternate;
+}
+
+.animate-float-slow {
+  animation: gentle-float 7s ease-in-out infinite alternate;
+  animation-delay: 1.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow {
+    animation: none;
+  }
+}
+
+/* 크레용 형광펜 하이라이트 (글자 아래쪽 반을 칠한 느낌) */
+.crayon-highlight {
+  background-image: linear-gradient(
+    transparent 58%,
+    rgba(255, 211, 78, 0.75) 58%,
+    rgba(255, 211, 78, 0.75) 94%,
+    transparent 94%
+  );
+}

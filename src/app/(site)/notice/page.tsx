@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Pin } from "lucide-react";
 import { readNotices, sortNotices } from "@/lib/notice-blob";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "공지사항",
@@ -17,14 +18,11 @@ export default async function NoticePage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#F5F0FF] to-[#EBF5FF] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          공지사항
-        </h1>
-        <p className="text-[#64748B] text-lg">
-          동산유치원의 소식을 전해드립니다
-        </p>
-      </section>
+      <PageHeader
+        title="공지사항"
+        subtitle="동산유치원의 소식을 전해드립니다"
+        gradient="from-[#F5F0FF] to-[#EBF5FF]"
+      />
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-3xl mx-auto">

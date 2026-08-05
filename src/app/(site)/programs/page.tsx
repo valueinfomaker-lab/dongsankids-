@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { specialPrograms } from "@/data/special-programs";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "특색교육",
@@ -13,14 +14,11 @@ export default function ProgramsPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#F5F0FF] to-[#F0FFF4] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          특색교육
-        </h1>
-        <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          아이의 작은 관심에서 큰 배움이 시작됩니다
-        </p>
-      </section>
+      <PageHeader
+        title="특색교육"
+        subtitle="아이의 작은 관심에서 큰 배움이 시작됩니다"
+        gradient="from-[#F5F0FF] to-[#F0FFF4]"
+      />
 
       {/* 특색교육 프로그램 */}
       <section className="py-16 px-4 bg-white">

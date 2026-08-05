@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { parentsIntro, parentPrograms } from "@/data/parents";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "학부모 참여",
@@ -13,14 +14,11 @@ export default function ParentsPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#F0FFF4] to-[#FFF5F2] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          학부모 참여
-        </h1>
-        <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          가정과 유치원이 함께 만드는 행복한 성장
-        </p>
-      </section>
+      <PageHeader
+        title="학부모 참여"
+        subtitle="가정과 유치원이 함께 만드는 행복한 성장"
+        gradient="from-[#F0FFF4] to-[#FFF5F2]"
+      />
 
       {/* 가정 연계교육 */}
       <section className="py-16 px-4 bg-white">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Phone, MapPin, Clock } from "lucide-react";
 import InquiryForm from "@/components/contact/InquiryForm";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "문의 및 오시는 길",
@@ -13,14 +14,11 @@ export default function ContactPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#EBF5FF] to-[#F0F5FF] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          문의
-        </h1>
-        <p className="text-[#64748B] text-lg">
-          궁금한 점이 있으시면 언제든지 연락주세요
-        </p>
-      </section>
+      <PageHeader
+        title="문의"
+        subtitle="궁금한 점이 있으시면 언제든지 연락주세요"
+        gradient="from-[#EBF5FF] to-[#F0F5FF]"
+      />
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-2xl mx-auto">

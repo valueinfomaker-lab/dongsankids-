@@ -1,4 +1,5 @@
 import { siteConfig } from "@/data/site";
+import { CrayonUnderline } from "@/components/ui/Doodles";
 
 const points = [
   {
@@ -36,9 +37,10 @@ export default function TrustPoints() {
     <section className="py-16 px-4 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-2">
+          <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-1">
             왜 동산유치원인가요?
           </h2>
+          <CrayonUnderline className="w-28 h-2 mx-auto mb-3" color="#F47B5A" />
           <p className="text-[#64748B]">학부모님이 가장 많이 묻는 질문에 답합니다</p>
         </div>
 

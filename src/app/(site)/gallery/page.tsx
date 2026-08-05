@@ -4,6 +4,7 @@ import GalleryGrid, {
 } from "@/components/gallery/GalleryGrid";
 import { galleryItems } from "@/data/gallery";
 import { readMetadata } from "@/lib/gallery-blob";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "사진첩",
@@ -38,14 +39,11 @@ export default async function GalleryPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#EBF5FF] to-[#F0FFF4] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          사진첩
-        </h1>
-        <p className="text-[#64748B] text-lg">
-          동산유치원 아이들의 행복한 순간들
-        </p>
-      </section>
+      <PageHeader
+        title="사진첩"
+        subtitle="동산유치원 아이들의 행복한 순간들"
+        gradient="from-[#EBF5FF] to-[#F0FFF4]"
+      />
 
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">

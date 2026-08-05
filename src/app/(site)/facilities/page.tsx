@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { facilitiesIntro, facilities } from "@/data/facilities";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "교육환경",
@@ -13,14 +14,11 @@ export default function FacilitiesPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#EBF5FF] to-[#FFF8EB] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          교육환경
-        </h1>
-        <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          안전하고 쾌적한 공간에서 마음껏 꿈을 키웁니다
-        </p>
-      </section>
+      <PageHeader
+        title="교육환경"
+        subtitle="안전하고 쾌적한 공간에서 마음껏 꿈을 키웁니다"
+        gradient="from-[#EBF5FF] to-[#FFF8EB]"
+      />
 
       {/* 시설 소개 */}
       <section className="py-16 px-4 bg-white">

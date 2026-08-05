@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { curriculumIntro, happyDay, fieldTrip } from "@/data/curriculum";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "교육과정",
@@ -31,14 +32,11 @@ export default function CurriculumPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#F0FFF4] to-[#EBF5FF] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          교육과정
-        </h1>
-        <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          놀이하며 발견하고, 경험하며 성장합니다
-        </p>
-      </section>
+      <PageHeader
+        title="교육과정"
+        subtitle="놀이하며 발견하고, 경험하며 성장합니다"
+        gradient="from-[#F0FFF4] to-[#EBF5FF]"
+      />
 
       {/* 교육과정 안내 */}
       <section className="py-16 px-4 bg-white">

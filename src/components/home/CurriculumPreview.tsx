@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CrayonUnderline } from "@/components/ui/Doodles";
 
 const previewItems = [
   {
@@ -33,9 +34,10 @@ export default function CurriculumPreview() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-2">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-[#1E293B] mb-1">
               동산만의 교육과정
             </h2>
+            <CrayonUnderline className="w-28 h-2 mb-3" color="#5BB85D" />
             <p className="text-[#64748B]">
               아이가 묻고, 탐구하고, 스스로 배웁니다
             </p>

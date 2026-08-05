@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Phone } from "lucide-react";
 import FaqAccordion from "@/components/admission/FaqAccordion";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "입학안내",
@@ -27,14 +28,11 @@ export default function AdmissionPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#FFF5F2] to-[#FFEEE9] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          입학안내
-        </h1>
-        <p className="text-[#64748B] text-lg">
-          소중한 아이의 행복한 첫걸음을 함께합니다
-        </p>
-      </section>
+      <PageHeader
+        title="입학안내"
+        subtitle="소중한 아이의 행복한 첫걸음을 함께합니다"
+        gradient="from-[#FFF5F2] to-[#FFEEE9]"
+      />
 
       {/* 입학 안내 */}
       <section className="py-16 px-4 bg-white">

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { busRoutes, type ScheduleItem } from "@/data/daily";
 import { siteConfig } from "@/data/site";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "하루 일과",
@@ -59,14 +60,11 @@ export default function DailyPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#FFF7ED] to-[#EBF5FF] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          하루 일과
-        </h1>
-        <p className="text-[#64748B] text-lg max-w-md mx-auto">
-          아이의 몸과 마음을 살피며 여유 있게 운영합니다
-        </p>
-      </section>
+      <PageHeader
+        title="하루 일과"
+        subtitle="아이의 몸과 마음을 살피며 여유 있게 운영합니다"
+        gradient="from-[#FFF7ED] to-[#EBF5FF]"
+      />
 
       {/* 일과표 */}
       <section className="py-16 px-4 bg-white">

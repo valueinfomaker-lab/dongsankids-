@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { siteConfig } from "@/data/site";
 import { greeting, philosophy, motto, educationGoals } from "@/data/about";
+import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "유치원 소개",
@@ -13,12 +14,11 @@ export default function AboutPage() {
   return (
     <div>
       {/* 페이지 헤더 */}
-      <section className="bg-gradient-to-br from-[#EBF5FF] to-[#F0FFF4] py-16 px-4 text-center">
-        <h1 className="font-display text-3xl md:text-4xl font-bold text-[#1E293B] mb-3">
-          유치원 소개
-        </h1>
-        <p className="text-[#64748B] text-lg">동산유치원을 소개합니다</p>
-      </section>
+      <PageHeader
+        title="유치원 소개"
+        subtitle="동산유치원을 소개합니다"
+        gradient="from-[#EBF5FF] to-[#F0FFF4]"
+      />
 
       {/* 원장 인사말 */}
       <section className="py-16 px-4 bg-white">
