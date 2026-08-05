@@ -112,9 +112,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-white/60">
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-xs text-white/60">
           <p>© 2026 동산유치원. All rights reserved.</p>
-          <p>개인정보처리방침</p>
         </div>
       </div>
     </footer>
