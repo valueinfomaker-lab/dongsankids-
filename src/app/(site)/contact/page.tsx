@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { Phone, MapPin, Clock } from "lucide-react";
-import InquiryForm from "@/components/contact/InquiryForm";
 import { siteConfig } from "@/data/site";
 import PageHeader from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
   title: "문의 및 오시는 길",
   description:
-    "동산유치원 전화 문의, 주소, 운영시간 안내. 온라인 입학 문의도 남기실 수 있습니다.",
+    "동산유치원 전화 문의, 주소, 운영시간, 오시는 길 안내. 네이버지도와 카카오맵으로 길찾기를 도와드립니다.",
 };
+
+const MAP_QUERY = encodeURIComponent(`${siteConfig.address} 동산유치원`);
+const NAVER_MAP_URL = `https://map.naver.com/p/search/${MAP_QUERY}`;
+const KAKAO_MAP_URL = `https://map.kakao.com/link/search/${MAP_QUERY}`;
 
 export default function ContactPage() {
   return (
@@ -66,7 +69,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* 구글 지도 */}
+          {/* 오시는 길 */}
           <div className="w-full rounded-2xl overflow-hidden border border-[#E2E8F0] mb-4" style={{ height: "400px" }}>
             <iframe
               src="https://maps.google.com/maps?q=서울시+금천구+시흥대로+152길+35+동산유치원&output=embed&hl=ko&z=17&t=m"
@@ -79,25 +82,26 @@ export default function ContactPage() {
               title="동산유치원 위치"
             />
           </div>
-          <a
-            href="https://maps.google.com/maps?q=서울시+금천구+시흥대로+152길+35+동산유치원"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block text-center text-sm text-[#4A9EE0] hover:underline mb-8"
-          >
-            Google 지도에서 열기 →
-          </a>
-
-          {/* 온라인 입학 문의 */}
-          <section id="inquiry" className="relative pt-8 border-t border-[#F1F5F9]">
-            <h2 className="font-display text-2xl font-bold text-[#1E293B] text-center mb-2">
-              온라인 입학 문의
-            </h2>
-            <p className="text-sm text-[#64748B] text-center mb-8">
-              연락처를 남겨주시면 확인 후 연락드립니다
-            </p>
-            <InquiryForm />
-          </section>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a
+              href={NAVER_MAP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-[#03C75A] hover:bg-[#02b350] text-white font-bold px-6 py-4 rounded-full transition-all duration-200 hover:-translate-y-0.5 shadow-md"
+            >
+              <MapPin className="w-5 h-5" />
+              네이버지도로 길찾기
+            </a>
+            <a
+              href={KAKAO_MAP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-[#FEE500] hover:bg-[#f5db00] text-[#191919] font-bold px-6 py-4 rounded-full transition-all duration-200 hover:-translate-y-0.5 shadow-md"
+            >
+              <MapPin className="w-5 h-5" />
+              카카오맵으로 길찾기
+            </a>
+          </div>
         </div>
       </section>
     </div>

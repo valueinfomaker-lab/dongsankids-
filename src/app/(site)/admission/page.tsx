@@ -132,10 +132,10 @@ export default function AdmissionPage() {
             {siteConfig.phone}
           </a>
           <Link
-            href="/contact#inquiry"
+            href="/contact"
             className="w-full sm:w-auto bg-white/20 hover:bg-white/30 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-200"
           >
-            온라인 문의하기
+            오시는 길 · 문의
           </Link>
         </div>
       </section>

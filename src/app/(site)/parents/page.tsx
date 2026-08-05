@@ -86,10 +86,10 @@ export default function ParentsPage() {
             전화 문의하기 →
           </a>
           <Link
-            href="/contact#inquiry"
+            href="/contact"
             className="w-full sm:w-auto border-2 border-[#4A9EE0] text-[#4A9EE0] hover:bg-[#4A9EE0] hover:text-white font-medium px-8 py-4 rounded-full text-lg transition-all duration-200"
           >
-            온라인 문의하기
+            오시는 길 · 문의
           </Link>
         </div>
       </section>
