@@ -58,13 +58,12 @@ export async function writeMetadata(items: GalleryBlobItem[]): Promise<void> {
 
 export async function uploadImage(
   buffer: ArrayBuffer,
-  filename: string,
+  ext: string, // 화이트리스트 검증을 통과한 확장자만 전달받는다 (validation/upload.ts)
   contentType: string,
   category: GalleryCategory,
   alt: string
 ): Promise<GalleryBlobItem> {
   const id = crypto.randomUUID();
-  const ext = filename.split(".").pop() ?? "jpg";
   const blob = await put(`gallery/images/${id}.${ext}`, buffer, {
     access: "public",
     contentType,
